@@ -19,6 +19,7 @@ namespace Questao2
         {
             InitializeComponent();
             contex = new MyStuffDbContext();
+            RefreshGrid();
         }
 
         private void RefreshGrid()
@@ -35,6 +36,13 @@ namespace Questao2
             dataGridView1.Refresh();
         }
 
+        double IMCCalc()
+        {
+            var calc = double.Parse(txtPeso.Text) / (double.Parse(txtAltura.Text) * double.Parse(txtAltura.Text));
+            var calcFormt = calc.ToString("F2");
+            return double.Parse(calcFormt);
+        }
+
         private void btnSalvar_Click(object sender, EventArgs e)
         {
             if (txtNome.Text != string.Empty && txtEmail.Text != string.Empty && txtSexo.Text != string.Empty && 
@@ -48,7 +56,7 @@ namespace Questao2
                     Idade = int.Parse(txtIdade.Text),
                     Peso = double.Parse(txtPeso.Text),
                     Altura = double.Parse(txtAltura.Text),
-                    IMC = double.Parse(txtPeso.Text) / (double.Parse(txtAltura.Text) * double.Parse(txtAltura.Text)),
+                    IMC = IMCCalc()
                 };
 
                 contex.Usuarios.Add(usuario);
