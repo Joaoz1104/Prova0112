@@ -1,0 +1,32 @@
+﻿namespace Questao2.Migrations
+{
+    using System;
+    using System.Data.Entity.Migrations;
+    
+    public partial class Arts : DbMigration
+    {
+        public override void Up()
+        {
+            CreateTable(
+                "dbo.Usuarios",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Nome = c.String(),
+                        Email = c.String(),
+                        Sexo = c.String(),
+                        Idade = c.Int(nullable: false),
+                        Peso = c.Double(nullable: false),
+                        Altura = c.Double(nullable: false),
+                        IMC = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+        }
+        
+        public override void Down()
+        {
+            DropTable("dbo.Usuarios");
+        }
+    }
+}
