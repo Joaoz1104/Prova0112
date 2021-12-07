@@ -102,7 +102,7 @@ namespace Questao2
                 txtAltura.Text = dataGridView1.SelectedCells[6].Value.ToString();
                 txtIMC.Text = dataGridView1.SelectedCells[7].Value.ToString();
 
-                btnEditar.Text = "Salvar";
+                btnEditar.Text = "Alterar";
             }
             else
             {
